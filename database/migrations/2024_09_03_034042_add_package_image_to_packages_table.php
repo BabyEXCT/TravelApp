@@ -1,0 +1,29 @@
+<?php
+
+// database/migrations/xxxx_xx_xx_add_package_image_to_packages_table.php
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddPackageImageToPackagesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */public function up()
+{
+    Schema::table('packages', function (Blueprint $table) {
+        $table->string('name')->after('id'); // Adjust column placement if needed
+    });
+}
+
+public function down()
+{
+    Schema::table('packages', function (Blueprint $table) {
+        $table->dropColumn('name');
+    });
+}
+
+}
+
